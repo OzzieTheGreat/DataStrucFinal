@@ -1,49 +1,50 @@
 def create_stack():
-    # creates an empty stack
+    # Creates a stack
     stack = []
     return stack
-
+ 
 def is_empty(stack):
-    # Checks if the stack is empty
+    # Checks if the stack is empty, returns True or False
     return len(stack) == 0
-
+ 
 def push(stack, item):
-    # Pushes an item onto the top of the stack
+    # Appends an item to the end of a stack
     stack.append(item)
-
+ 
 def pop(stack):
-    # Pops and return the top item from the stack
-    # Returns None if the stack is empty
+    # Pops the end of a stack, removing it from the end and storing that data
     if is_empty(stack):
         return None
     return stack.pop()
-
+ 
+ 
 def reverse_string(string):
-    # Reverses a string using a stack
-    # The string input is reversed
-    # Returns the reversed string
+    # Reverses the string using a stack
     stack = create_stack()
     reversed_string = ""
-
-    # Pushes each character of the string on the stack
+ 
+    # Uses Push to transfer the string characters to a stack
     for char in string:
         push(stack, char)
-
-    # Pop characters from the stack and append them to the reversed string
+ 
+    # Reverse the stack
     while not is_empty(stack):
         reversed_string += pop(stack)
-
     return reversed_string
-
+ 
+ 
 def get_user_input():
-    # Prompts the user to enter a string
+    # User Input
     user_input = input("Enter a string to reverse: ")
     return user_input
-
+ 
 def main():
-    # Main function to execute the string reversal process
     user_input = get_user_input()
     reversed_string = reverse_string(user_input)
-    print("Reversed string:", reversed_string)
-
+    if is_empty(user_input):
+        print("String is Empty")
+    else:
+        print("Reversed String:", reversed_string)
+ 
 main()
+
